@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="content"></div>
+    <h1>Правила бойцовского клуба</h1>
+    <div id="wrap">
+        <div class="rules rule1">
+            <h2>Первое правило Бойцовского клуба.</h2>
+            <p>Никому не рассказывать о Бойцовском клубе.</p>
+        </div>
+        <div class="rules rule2">
+            <h2>Второе правило Бойцовского клуба.</h2>
+            <p>Никогда никому не рассказывать о Бойцовском клубе.</p>
+        </div>
+        <div class="rules rule3">
+            <h2>Третье правило Бойцовского клуба.</h2>
+            <p>В схватке участвуют только двое.</p>
+        </div>
+        <div class="rules rule4">
+            <h2>Четвертое правило Бойцовского клуба.</h2>
+            <p>Не более одного поединка за один раз.</p>
+        </div>
+
+        <div class="rules rule5">
+            <h2>Пятое правило Бойцовского клуба.</h2>
+            <p>Бойцы сражаются без обуви и голые по пояс.</p>
+        </div>
+        <div class="rules rule6">
+            <h2>Шестое правило Бойцовского клуба.</h2>
+            <p>Поединок продолжается столько, сколько потребуется.</p>
+        </div>
+        <div class="rules rule7">
+            <h2>Седьмое правило Бойцовского клуба.</h2>
+            <p>Если противник потерял сознание или делает вид, что потерял, или говорит «Хватит» — поединок окончен.
+            </p>
+        </div>
+        <div class="rules rule8">
+            <h2>Восьмое и последнее правило Бойцовского клуба.</h2>
+            <p>Новичок обязан принять бой.</p>
+        </div>
+    </div>
+    <script>
+        //  -- создать скрипт, который берет считывает на странице (rules.html) текст и делает
+        //  сбоку меню-оглавление по всем заголовкам которые есть в тексте.
+        // При клике на пункт оглавления вы должны отправляться к этому пункту в тексте
+
+        let div = document.createElement("div")
+        document.body.appendChild(div)
+
+        let h1 = document.querySelector("h1")
+        console.log(h1)
+        let ul = document.createElement("ul")
+        div.appendChild(ul)
+        let h11 = document.createElement("h1")
+        document.body.appendChild(ul)
+        div.appendChild(h11)
+        let a1 = document.createElement("a")
+        a1.innerText = h1.innerText
+        h1.setAttribute("id", "h1")
+        a1.href = "#h1"
+        h11.appendChild(a1)
+
+        let h2 = document.querySelectorAll("h2")
+        for (let i = 0; i < h2.length; i++) {
+            let li = document.createElement("li")
+
+            ul.appendChild(li)
+            let a = document.createElement("a")
+            a.innerText = h2[i].innerText
+            h2[i].setAttribute("id", `h2${i}`)
+            a.href = `#h2${i}`
+            li.appendChild(a)
+            div.appendChild(ul)
+        }
+        div.style.position = "absolute"
+        div.style.left = "1000px";
+        div.style.top = "10px";
+    </script>
+</body>
+
+</html>
